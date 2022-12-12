@@ -1,0 +1,131 @@
+/*Problem statement:
+Creation, insertion and deletion of nodes in single linked list.  */
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node //creating a node of the linked list
+{
+int data;//data to store elements in the linked list
+struct node *next;//pointer referring to the next node
+};
+struct node *head; //pointer pointing to head node of the structure
+void insert() //inertion of element in the linked list from the last
+{
+struct node *ptr,//pointer pointing to the structure(by using it we are
+retrieving data from the list)
+*temp; //temporary node to insert elements
+int item; //item to be inserted by console input by the user
+ptr = (struct node*)malloc(sizeof(struct node)); //allocate memory for the ptr
+variable
+if(ptr == NULL) //checks if the address of ptr is NULL (two possibilities either
+the list is full or empty)
+{
+printf("\nOVERFLOW");
+}
+else
+{
+printf("\nEnter value?\n");
+scanf("%d",&item); //taken console input from user
+ptr->data = item;
+if(head == NULL) //checks whether the address of the head variable is NULL
+or does not exist
+{
+ptr -> next = NULL; //address of the next node is initialised to null
+head = ptr; //value of ptr is assigned to head
+printf("\nNode inserted\n");
+}
+else
+{ //this part actually it is using a temporary variable temp to traverse
+through the list till the last element is found and then it adds he element there.
+temp = head;
+while (temp -> next != NULL)
+{
+temp = temp -> next; //this is the traversing part
+} //once the loop breaks at the temp value,
+temp->next = ptr;//the given ptr is assigned a value and
+ptr->next = NULL; //and the next address pointer is set to NULL
+printf("\nNode inserted\n");
+} //end of inner else
+} //end of outer while
+} //end of insert()
+void display() //method to display the elements present in the linked list
+{
+struct node *ptr; //a temorary pointer which is initialised to the head node
+ptr = head;
+if(ptr == NULL) //condition to check if the head is null means the linked list is
+empty
+{
+printf("Nothing to print");
+}//end of if
+else
+{
+printf("\nprinting values . . . . .\n");
+while (ptr!=NULL) //loop to check whether it has come to the last
+node/traversing till it reaches the last node
+{
+printf("\n%d\n",ptr->data);
+ptr = ptr -> next; //ptr points to the next node
+} //end of while
+} //end of else part
+} //end of display
+void delete_pos()
+{
+int i,pos;
+struct node *temp,*ptr;
+if(head==NULL)
+{
+printf("\nThe List is Empty:\n");
+exit(0);
+}
+else
+{
+printf("\nEnter the position of the node to be deleted:\t");
+scanf("%d",&pos);
+if(pos==0)
+{
+ptr=head;
+head=head->next ;
+printf("\nThe deleted element is:%d\t",ptr->data );
+free(ptr);
+}
+else
+{
+ptr=head;
+for(i=0;i<pos;i++) { temp=ptr; ptr=ptr->next ;
+if(ptr==NULL)
+{
+printf("\nPosition not Found:\n");
+return;
+}
+}
+temp->next =ptr->next ;
+printf("\nThe deleted element is:%d\t",ptr->data );
+free(ptr);
+}
+}
+}
+int main()//driver code
+{
+int ch=0;
+while(ch!=3)
+{
+printf("Enter a choice\n");
+scanf("%d",&ch);
+switch (ch)//menu-driven as per choice provided by the user
+{
+case 1:
+insert();//method to insert element to linked list
+break;
+case 2:
+delete_pos();
+break;
+case 3:
+display();
+case 4:
+exit(0);//exit from loop
+default:
+printf("Invalid choice");
+break;
+}// end of switch case
+}//end of while loop
+}//end of main
