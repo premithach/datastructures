@@ -1,0 +1,71 @@
+/*Problem Statement:
+Write a program in C to implement Queue data structure based on the concept
+of FIFO (First In First Out) using single dimensional array as an ADT.
+*/
+#include<stdio.h>
+#include <stdbool.h>
+int queue[20];//queue array
+int top=0;
+int bottom=0;
+void display();
+void enqueue(int);
+int dequeue();
+bool isEmpty()//function to check whether the queue is empty or not
+{
+if(top==bottom)
+{
+return true;
+}
+else
+{
+return false;
+}
+}//end of isEmpty()
+void display()//displays the current elements of the queue
+{
+int i;
+if (bottom == 0)
+printf("\nQueue is empty!!!");
+else {
+printf("\nQueue elements are:\n");
+for (i = top; i <= bottom; i++)
+printf("%d ", queue[i]);
+}
+printf("\n");
+}//end display ()
+void enqueue(int x)//adds element to queue
+{
+if(bottom==19)
+{
+printf("Queue Overflow....");
+}
+else
+{
+if (top == 0)
+top = 1;
+bottom++;
+queue[bottom] = x;
+}
+}//end of enqueue()
+int dequeue()//deletes elements from queue
+{
+if (top == 0)
+printf("\nUnderflow!!");
+else {
+printf("\nDeleted : %d", queue[top]);
+top++;
+}
+} //end of dequeue()
+Driver code
+#include "queue.h"
+int main()//driver code
+{
+enqueue(7);
+enqueue(6);
+enqueue(5);
+display();
+int y=dequeue();
+display();
+y=dequeue();
+display();
+};//end of main
