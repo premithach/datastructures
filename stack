@@ -1,0 +1,79 @@
+/*Problem statement:
+Write a program in C to implement Stack data structure based on the concept
+of LIFO (Last In First Out) using single dimensional array as an ADT.
+*/
+#include<stdio.h>
+#include <stdbool.h>
+int stack[20];
+int top=0; // top of stack
+//void addElement(int x);
+void push(int x);
+//int delElement();
+int pop();
+//void printElement(); /* function to print elements of the array */
+void printStack(); /* function to print elements of the array */
+bool isEmpty()//function to check whether the stack is empty or not
+{
+if(top==0)
+{
+return true;
+}
+else
+{
+return false;
+}
+}//end of isEmpty()
+void printStack()//prints the current elements in the stack
+{
+int i;//loop variable
+if(isEmpty()==true)//checks whether the stack is empty or not by calling
+isEmpty() function
+{
+printf("\nStack Empty...");
+}
+else
+{
+for(i=top;i>0;i--)
+{
+printf(" %d \n",stack[i]);
+}
+printf("\n");
+}
+}//end printStack ()
+void push(int x)//adds elements to the stack
+{
+if(top==19)//condition for checking whether the stack is full or not
+{
+printf("Stack Overflow....");
+}
+else
+{
+stack[++top]=x;
+}
+}//end of push()
+int pop()//deletes elements from the stack
+{
+int x;
+if(isEmpty()==true)
+{
+printf("\nStack Underflow...");
+}
+else {
+return stack[top--];
+}
+}//end of pop()
+DRIVER CODE
+#include "stack.h"//includes the header as ADT
+int main()//main driver code
+{
+push(6);//calls the method from header file
+push(5);
+push(4);
+printStack();
+int y=pop();
+printStack();
+y=pop();
+printStack();
+y=pop();
+printStack();
+};//end of main function
