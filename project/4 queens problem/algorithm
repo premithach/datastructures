@@ -1,0 +1,11 @@
+Step 1: Start
+Step 2: Place the queens column wise, start from the left most column
+Step 3: If all queens are placed:
+            return true and print the solu-tion matrix.
+        Else
+            Try all the rows in the cur-rent column.
+Step 4: Check if queen can be placed here safely if yes mark the cur-rent cell in solution matrix as 1 and try to solve the rest of the problem recursively.
+Step 5: If placing the queen in above step leads to the solution return true.
+Step 6: If placing the queen in above step does not lead to the solu-tion, backtrack, mark the current cell in solution matrix as 0 and return false.
+Step 7: If all the rows are tried and nothing worked, return false and print no solution.
+Step 8: Stop
