@@ -1,0 +1,4 @@
+•Time complexity :
+    Total number of moves = 2^n-1
+    O(2^N) [N = Number of disks]
+•Space complexity : O(N) [As we are using stack]
