@@ -1,0 +1,26 @@
+STEP 1: First, we have to create the "n" integer that stands for the number of disks.
+STEP 2: Now, create three stacks for auxiliary, destination, and source and create three variables "s" as A, B, and C.
+STEP 3: After that, check if the number of disk mod 2 is zero and storing "d" in the temporary variable.
+STEP 4: Now update "d" as "a" then "a" as a temporary variable.
+STEP 5: After updating the variable, create the variable for the number of moves, then update it as the "(n*n) -1."
+STEP 6: Now, we have to transverse from "n" to one then provide the current value in a source stack.
+STEP 7: After that, we have to transverse from 1 to a total number of moves then check that the current index mod 3 is one.
+STEP 8: Now, pop the top through the destination and source stack.
+STEP 9: In case the popped top of a source stack is the same as "INT_MIN", then we have to push the popped top of the destination to the source stack.
+STEP 10: In case the popped top of a destination stack is the same as "INT_MIN",then we have to push the popped top of the source to the destination stack.
+STEP 11: In case the popped top of a source stack is more than the popped top of the 
+         destination stack, then we have to push the tops in the source stack, or else we can
+         push both in the destination stack. After performing it, we have to print the traversal.
+STEP 12: Now, check that the current index mod 3 is two, and we have to pop the top from the source, then the auxiliary stack.
+STEP 13: In case the popped top of the source stack is the same as "INT_MIN", then we have to push the popped top of the auxiliary to the source stack.
+STEP 14: In case the auxiliary stack's popped top is the same as "INT_MIN" then we have to push a popped top of the source to the auxiliary stack.
+STEP 15: In case the popped top of a source stack is more than the popped top of the
+         auxiliary stack, then we have to push the tops in the source stack, or else we can push
+         both auxiliary stacks. After performing it, we have to print the traversal.
+STEP 16: Now, check that the current index mod 3 is zero, and we have to pop the top from auxiliary, then the destination stack.
+STEP 17: In case the popped top of the source stack is the same as "INT_MIN", then
+         we have to push the popped top of the destination to the auxiliary stack.
+STEP 18: In case the destination stack's popped top is the same as "INT_MIN", then we have to push a popped top of the auxiliary to the destination stack.
+STEP 19: In case the popped top of the auxiliary stack is more than the popped top of
+         the destination stack, then we have to push the tops in the auxiliary stack, or we can
+         push both the destination stack. After performing it, we have to print the traversal.
